@@ -2,6 +2,7 @@
 
 import React from "react";
 import contactsData from "../data/contacts.json";
+import Image from "next/image";
 
 const ArrowDownTrayIcon = () => (
 	<svg
@@ -62,10 +63,14 @@ export default function Home() {
 	return (
 		<div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
 			<main className="max-w-7xl mx-auto">
-				{/* Header */}
 				<div className="text-center mb-12">
-					<div className="bg-blue-600 text-white text-2xl font-bold py-2 px-4 rounded inline-block mb-4">
-						Your Logo
+					<div className="bg-600 text-white text-2xl font-bold py-2 px-4 rounded inline-block mb-4">
+						<Image
+							src="/assets/vestellalab_logo.png"
+							alt="Vestellalab Logo"
+							width={200}
+							height={50}
+						/>
 					</div>
 					<h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
 						Watchmile SDK Documentation
@@ -101,7 +106,7 @@ export default function Home() {
 								<div className="mt-5">
 									<a
 										href="/path/to/sdk-documentation.pdf"
-										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-blue-600 hover:bg-blue-700"
 									>
 										Download PDF
 										<ArrowDownTrayIcon />
@@ -133,7 +138,7 @@ export default function Home() {
 								<div className="mt-5">
 									<a
 										href="https://api.watchmile.net/cdn/kakao/favicon.zip"
-										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
+										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-green-600 hover:bg-green-700"
 									>
 										Download PDF
 										<ArrowDownTrayIcon />
@@ -165,7 +170,7 @@ export default function Home() {
 								<div className="mt-5">
 									<a
 										href="/path/to/sdk-file.zip"
-										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700"
+										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 gap-2 hover:bg-purple-700"
 									>
 										Download SDK
 										<ArrowDownTrayIcon />
