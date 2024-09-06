@@ -1,13 +1,13 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
 	output: "export",
 	images: {
 		unoptimized: true,
 	},
-	assetPrefix:
-		process.env.NODE_ENV === "production" ? "/watchmile-sdk-document" : "",
-	basePath:
-		process.env.NODE_ENV === "production" ? "/watchmile-sdk-document" : "",
+	// GitHub Pages를 위한 설정
+	basePath: process.env.NODE_ENV === "production" ? "/your-repo-name" : "",
 };
 
-module.exports = nextConfig;
+export default nextConfig;
