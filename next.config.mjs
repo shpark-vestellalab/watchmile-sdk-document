@@ -7,7 +7,8 @@ const nextConfig = {
 		unoptimized: true,
 	},
 	// GitHub Pages를 위한 설정
-	basePath: process.env.NODE_ENV === "production" ? "/your-repo-name" : "",
+	basePath:
+		process.env.NODE_ENV === "production" ? "/watchmile-sdk-document" : "",
 };
 
 export default nextConfig;
