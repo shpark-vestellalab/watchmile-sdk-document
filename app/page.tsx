@@ -132,7 +132,7 @@ export default function Home() {
 								</div>
 								<div className="mt-5">
 									<a
-										href="/path/to/api-documentation.pdf"
+										href="https://api.watchmile.net/cdn/kakao/favicon.zip"
 										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700"
 									>
 										Download PDF
