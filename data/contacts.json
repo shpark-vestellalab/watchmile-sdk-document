@@ -1,0 +1,16 @@
+{
+	"contacts": [
+		{
+			"name": "Sihyun Park",
+			"email": "shpark@vestellalab.com",
+			"phone": "010-2613-7182",
+			"department": "SDK Development"
+		},
+		{
+			"name": "ByeongChul Kim",
+			"email": "bckim@vestellalab.com",
+			"phone": "010-4115-1830",
+			"department": "API Support"
+		}
+	]
+}
