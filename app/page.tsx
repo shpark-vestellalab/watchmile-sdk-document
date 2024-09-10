@@ -105,7 +105,7 @@ export default function Home() {
 								</div>
 								<div className="mt-5">
 									<a
-										href="/path/to/sdk-documentation.pdf"
+										href="https://api.watchmile.net/cdn/kakao/WACHMILE_SDK_Document.pdf"
 										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-blue-600 hover:bg-blue-700"
 									>
 										Download PDF
@@ -137,7 +137,7 @@ export default function Home() {
 								</div>
 								<div className="mt-5">
 									<a
-										href="https://api.watchmile.net/cdn/kakao/favicon.zip"
+										href="https://api.watchmile.net/cdn/kakao/WACHMILE_API_Document.pdf"
 										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-green-600 hover:bg-green-700"
 									>
 										Download PDF
@@ -169,7 +169,7 @@ export default function Home() {
 								</div>
 								<div className="mt-5">
 									<a
-										href="/path/to/sdk-file.zip"
+										href="https://api.watchmile.net/cdn/kakao/WatchmileSDK.aar"
 										className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 gap-2 hover:bg-purple-700"
 									>
 										Download SDK
