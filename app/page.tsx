@@ -66,7 +66,7 @@ export default function Home() {
 				<div className="text-center mb-12">
 					<div className="bg-600 text-white text-2xl font-bold py-2 px-4 rounded inline-block mb-4">
 						<Image
-							src="/assets/vestellalab_logo.png"
+							src="https://github.com/shpark-vestellalab/watchmile-sdk-document/blob/main/public/assets/vestellalab_logo.png?raw=true"
 							alt="Vestellalab Logo"
 							width={200}
 							height={50}
