@@ -1,10 +1,9 @@
 "use client";
-
-import React from "react";
-import contactsData from "../data/contacts.json";
+import React, { useState } from "react";
 import Image from "next/image";
+import contactsData from "../data/contacts.json";
 
-const ArrowDownTrayIcon = () => (
+const DownloadIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -22,7 +21,7 @@ const ArrowDownTrayIcon = () => (
   </svg>
 );
 
-const DocumentTextIcon = () => (
+const DocumentIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -42,7 +41,7 @@ const DocumentTextIcon = () => (
   </svg>
 );
 
-const CodeBracketIcon = () => (
+const CodeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -54,17 +53,56 @@ const CodeBracketIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <polyline points="16 18 22 12 16 6" />
-    <polyline points="8 6 2 12 8 18" />
+    <polyline points="16 18 22 12 16 6"></polyline>
+    <polyline points="8 6 2 12 8 18"></polyline>
   </svg>
 );
 
+const SDKCard = ({ platform, version, sdkDocLink, sdkLink }) => (
+  <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+    <h2 className="text-2xl font-bold mb-2">{platform} SDK</h2>
+    <p className="text-gray-600 mb-4">Version {version}</p>
+    <div className="flex flex-wrap gap-4">
+      <a
+        href={sdkDocLink}
+        className="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-blue-600 transition-colors"
+      >
+        <DocumentIcon />
+        <span>SDK Documentation</span>
+      </a>
+      <a
+        href={sdkLink}
+        className="bg-gray-200 text-gray-800 px-4 py-2 rounded flex items-center space-x-2 hover:bg-gray-300 transition-colors"
+      >
+        <DownloadIcon />
+        <span>Download SDK</span>
+      </a>
+    </div>
+  </div>
+);
+
+const APIDocumentCard = ({ apiDocLink }) => (
+  <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+    <h2 className="text-2xl font-bold mb-2">API Documentation</h2>
+    <p className="text-gray-600 mb-4">Version 1.0.0</p>
+    <a
+      href={apiDocLink}
+      className="bg-green-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-green-600 transition-colors inline-flex"
+    >
+      <CodeIcon />
+      <span>API Documentation</span>
+    </a>
+  </div>
+);
+
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("ios");
+
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <main className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <div className="bg-600 text-white text-2xl font-bold py-2 px-4 rounded inline-block mb-4">
+          <div className="p-6 inline-block">
             <Image
               src="https://github.com/shpark-vestellalab/watchmile-sdk-document/blob/main/public/assets/vestellalab_logo.png?raw=true"
               alt="Vestellalab Logo"
@@ -72,115 +110,55 @@ export default function Home() {
               height={50}
             />
           </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+          <h1 className="mt-6 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
             Watchmile SDK Documentation
           </h1>
           <p className="mt-5 text-xl text-gray-500">
-            Access our SDK resources and documentation
+            Access our SDK resources and documentation for iOS and Android
           </p>
         </div>
-
-        {/* Main content */}
-        <div className="mt-10">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* SDK Documentation */}
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-blue-500 rounded-md p-3">
-                    <DocumentTextIcon />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">
-                        SDK Documentation
-                      </dt>
-                      <dd>
-                        <div className="text-lg font-medium text-gray-900">
-                          PDF Guide
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <a
-                    href="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_Document.pdf"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-blue-600 hover:bg-blue-700"
-                  >
-                    Download PDF
-                    <ArrowDownTrayIcon />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* API Documentation */}
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-green-500 rounded-md p-3">
-                    <CodeBracketIcon />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">
-                        API Documentation
-                      </dt>
-                      <dd>
-                        <div className="text-lg font-medium text-gray-900">
-                          PDF Guide
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <a
-                    href="https://api.watchmile.net/cdn/kakao/WATCHMILE_API_Document.pdf"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm gap-2 text-white bg-green-600 hover:bg-green-700"
-                  >
-                    Download PDF
-                    <ArrowDownTrayIcon />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* SDK Download */}
-            <div className="bg-white overflow-hidden shadow rounded-lg">
-              <div className="px-4 py-5 sm:p-6">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 bg-purple-500 rounded-md p-3">
-                    <ArrowDownTrayIcon />
-                  </div>
-                  <div className="ml-5 w-0 flex-1">
-                    <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">
-                        SDK Download
-                      </dt>
-                      <dd>
-                        <div className="text-lg font-medium text-gray-900">
-                          1.0.0
-                        </div>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <a
-                    href="https://api.watchmile.net/cdn/kakao/WatchmileSDK.aar"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 gap-2 hover:bg-purple-700"
-                  >
-                    Download SDK
-                    <ArrowDownTrayIcon />
-                  </a>
-                </div>
-              </div>
-            </div>
+        <APIDocumentCard apiDocLink="https://api.watchmile.net/cdn/WATCHMILE_API_Document.pdf" />
+        <div className="mb-6">
+          <div className="flex border-b border-gray-200">
+            <button
+              className={`py-2 px-4 ${
+                activeTab === "ios"
+                  ? "border-b-2 border-blue-500 text-blue-500"
+                  : "text-gray-500"
+              }`}
+              onClick={() => setActiveTab("ios")}
+            >
+              iOS
+            </button>
+            <button
+              className={`py-2 px-4 ${
+                activeTab === "android"
+                  ? "border-b-2 border-blue-500 text-blue-500"
+                  : "text-gray-500"
+              }`}
+              onClick={() => setActiveTab("android")}
+            >
+              Android
+            </button>
           </div>
         </div>
-        {/* Contact Information */}
+
+        {activeTab === "ios" && (
+          <SDKCard
+            platform="iOS"
+            version="1.0.0"
+            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
+            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
+          />
+        )}
+        {activeTab === "android" && (
+          <SDKCard
+            platform="Android"
+            version="1.0.0"
+            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMIE_SDK_ANDROID.pdf"
+            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
+          />
+        )}
         <div className="mt-16 bg-white shadow overflow-hidden sm:rounded-lg">
           <div className="px-4 py-5 sm:px-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900">
