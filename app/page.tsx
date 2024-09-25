@@ -58,19 +58,7 @@ const CodeIcon = () => (
   </svg>
 );
 
-interface SDKCardProps {
-  platform: string; // platform의 타입 정의
-  version: string; // version의 타입 정의
-  sdkDocLink: string; // sdkDocLink의 타입 정의
-  sdkLink: string; // sdkLink의 타입 정의
-}
-
-const SDKCard: React.FC<SDKCardProps> = ({
-  platform,
-  version,
-  sdkDocLink,
-  sdkLink,
-}) => (
+const SDKCard = ({ platform, version, sdkDocLink, sdkLink }) => (
   <div className="bg-white shadow-md rounded-lg p-6 mb-6">
     <h2 className="text-2xl font-bold mb-2">{platform} SDK</h2>
     <p className="text-gray-600 mb-4">Version {version}</p>
@@ -93,7 +81,11 @@ const SDKCard: React.FC<SDKCardProps> = ({
   </div>
 );
 
-const APIDocumentCard = ({ apiDocLink }) => (
+interface APIDocumentCardProps {
+  apiDocLink: string; // apiDocLink 타입 정의
+}
+
+const APIDocumentCard: React.FC<APIDocumentCardProps> = ({ apiDocLink }) => (
   <div className="bg-white shadow-md rounded-lg p-6 mb-6">
     <h2 className="text-2xl font-bold mb-2">API Documentation</h2>
     <p className="text-gray-600 mb-4">Version 1.0.0</p>
