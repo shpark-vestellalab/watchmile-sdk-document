@@ -133,7 +133,7 @@ export default function Home() {
             Access our SDK resources and documentation for iOS and Android
           </p>
         </div>
-        <APIDocumentCard apiDocLink="https://api.watchmile.net/cdn/WATCHMILE_API_Document.pdf" />
+        <APIDocumentCard apiDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_API_Document.pdf" />
         <div className="mb-6">
           <div className="flex border-b border-gray-200">
             <button
