@@ -100,7 +100,7 @@ interface APIDocumentCardProps {
 const APIDocumentCard: React.FC<APIDocumentCardProps> = ({ apiDocLink }) => (
   <div className="bg-white shadow-md rounded-lg p-6 mb-6">
     <h2 className="text-2xl font-bold mb-2">API Documentation</h2>
-    <p className="text-gray-600 mb-4">Version 1.0.0</p>
+    <p className="text-gray-600 mb-4">Version 1.0.1</p>
     <a
       href={apiDocLink}
       className="bg-green-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-green-600 transition-colors inline-flex"
@@ -162,7 +162,7 @@ export default function Home() {
         {activeTab === "ios" && (
           <SDKCard
             platform="iOS"
-            version="1.0.0"
+            version="1.0.1"
             sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
             sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
           />
@@ -170,7 +170,7 @@ export default function Home() {
         {activeTab === "android" && (
           <SDKCard
             platform="Android"
-            version="1.0.0"
+            version="1.0.1"
             sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMIE_SDK_ANDROID.pdf"
             sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
           />
