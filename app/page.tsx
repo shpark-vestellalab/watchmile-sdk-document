@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import contactsData from "../data/contacts.json";
+import patchNotesData from "../data/patchNotes.json";
 
 const DownloadIcon = () => (
   <svg
@@ -111,6 +112,50 @@ const APIDocumentCard: React.FC<APIDocumentCardProps> = ({ apiDocLink }) => (
   </div>
 );
 
+interface Change {
+  title: string;
+  description: string[];
+}
+
+interface PatchNote {
+  version: string;
+  date: string;
+  changes: Change[];
+}
+
+interface PatchNotesProps {
+  notes: PatchNote[];
+}
+
+const PatchNotes: React.FC<PatchNotesProps> = ({ notes }) => {
+  return (
+    <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+      <h2 className="text-2xl font-bold mb-2">Patch Notes</h2>
+      {notes.map((note, index) => (
+        <div key={index} className="mb-6">
+          <h3 className="text-gray-600 mb-4">{`Version ${note.version} (${note.date})`}</h3>
+          <ul className="list-disc">
+            {note.changes.map((change, idx) => (
+              <li key={idx} className="text-gray-700 list-none">
+                <strong className="block text-gray-900 mt-4">
+                  {change.title}
+                </strong>
+                <ul className="list-disc ml-5">
+                  {change.description.map((description, descIdx) => (
+                    <li key={descIdx} className="text-gray-700">
+                      {description}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState("ios");
 
@@ -134,6 +179,7 @@ export default function Home() {
           </p>
         </div>
         <APIDocumentCard apiDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_API_Document.pdf" />
+
         <div className="mb-6">
           <div className="flex border-b border-gray-200">
             <button
@@ -160,20 +206,26 @@ export default function Home() {
         </div>
 
         {activeTab === "ios" && (
-          <SDKCard
-            platform="iOS"
-            version="1.0.1"
-            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
-            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
-          />
+          <div>
+            <SDKCard
+              platform="iOS"
+              version="1.0.1"
+              sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
+              sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
+            />
+            <PatchNotes notes={patchNotesData.iOS} />
+          </div>
         )}
         {activeTab === "android" && (
-          <SDKCard
-            platform="Android"
-            version="1.0.1"
-            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMIE_SDK_ANDROID.pdf"
-            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
-          />
+          <div>
+            <SDKCard
+              platform="Android"
+              version="1.0.1"
+              sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMIE_SDK_ANDROID.pdf"
+              sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
+            />
+            <PatchNotes notes={patchNotesData.android} />
+          </div>
         )}
         <div className="mt-16 bg-white shadow overflow-hidden sm:rounded-lg">
           <div className="px-4 py-5 sm:px-6">

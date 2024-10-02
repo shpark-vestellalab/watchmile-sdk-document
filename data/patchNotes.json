@@ -1,0 +1,32 @@
+{
+  "iOS": [
+    {
+      "version": "1.0.1",
+      "date": "2024-09-30",
+      "changes": [
+        {
+          "title": "iOS 라이브러리 통합",
+          "description": [
+            "기존 iphoneos 라이브러리와 iphonesimulator를 함께 묶은 xcframework가 배포되었습니다."
+          ]
+        }
+      ]
+    }
+  ],
+  "android": [
+    {
+      "version": "1.0.1",
+      "date": "2024-09-30",
+      "changes": [
+        {
+          "title": "라이브러리 버전 다운그레이드",
+          "description": [
+            "okhttp 관련 라이브러리 버전이 다음과 같이 패치되었습니다.",
+            "okhttp 4.12.0 -> 3.14.9",
+            "logging-interceptor 4.12.0 -> 3.12.8"
+          ]
+        }
+      ]
+    }
+  ]
+}
