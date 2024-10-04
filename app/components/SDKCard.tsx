@@ -1,4 +1,3 @@
-import React from "react";
 import { DocumentIcon, DownloadIcon } from "./Icons";
 
 interface SDKCardProps {

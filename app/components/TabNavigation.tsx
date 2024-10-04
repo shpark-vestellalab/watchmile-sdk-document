@@ -1,33 +1,62 @@
-interface TabNavigationProps {
-  activeTab: string;
-  onTabChange: (tab: string) => void;
-}
+"use client";
 
-const TabNavigation: React.FC<TabNavigationProps> = ({
-  activeTab,
-  onTabChange,
-}) => {
-  const tabs = ["ios", "android"];
+import { useState } from "react";
+import SDKCard from "../components/SDKCard";
+import APIDocumentCard from "../components/ApiDocumentCard";
+import PatchNotes from "../components/PatchNotes";
+import patchNotesData from "../../data/patchNotes.json";
+
+export default function TabNavigation() {
+  const [activeTab, setActiveTab] = useState("ios");
 
   return (
     <div className="mb-6">
       <div className="flex border-b border-gray-200">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            className={`py-2 px-4 ${
-              activeTab === tab
-                ? "border-b-2 border-blue-500 text-blue-500"
-                : "text-gray-500"
-            }`}
-            onClick={() => onTabChange(tab)}
-          >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
-          </button>
-        ))}
+        <button
+          className={`py-2 px-4 ${
+            activeTab === "ios"
+              ? "border-b-2 border-blue-500 text-blue-500"
+              : "text-gray-500"
+          }`}
+          onClick={() => setActiveTab("ios")}
+        >
+          iOS
+        </button>
+        <button
+          className={`py-2 px-4 ${
+            activeTab === "android"
+              ? "border-b-2 border-blue-500 text-blue-500"
+              : "text-gray-500"
+          }`}
+          onClick={() => setActiveTab("android")}
+        >
+          Android
+        </button>
       </div>
+
+      {activeTab === "ios" && (
+        <div>
+          <SDKCard
+            platform="iOS"
+            version="1.0.1"
+            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
+            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
+          />
+          <PatchNotes notes={patchNotesData.iOS} />
+        </div>
+      )}
+
+      {activeTab === "android" && (
+        <div>
+          <SDKCard
+            platform="Android"
+            version="1.0.1"
+            sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_ANDROID.pdf"
+            sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
+          />
+          <PatchNotes notes={patchNotesData.android} />
+        </div>
+      )}
     </div>
   );
-};
-
-export default TabNavigation;
+}

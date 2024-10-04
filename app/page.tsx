@@ -1,16 +1,8 @@
-"use client";
-import { useState } from "react";
 import Image from "next/image";
 import APIDocumentCard from "./components/ApiDocumentCard";
 import ContactInformation from "./components/ContactInformation";
 import TabNavigation from "./components/TabNavigation";
-import SDKCard from "./components/SDKCard";
-import PatchNotes from "./components/PatchNotes";
-import patchNotesData from "../data/patchNotes.json";
-
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("ios");
-
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <main className="max-w-7xl mx-auto">
@@ -31,31 +23,8 @@ export default function Home() {
           </p>
         </div>
         <APIDocumentCard apiDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_API_Document.pdf" />
-        <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />{" "}
-        {/* 탭 내비게이션 추가 */}
-        {activeTab === "ios" && (
-          <div>
-            <SDKCard
-              platform="iOS"
-              version="1.0.1"
-              sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
-              sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
-            />
-            <PatchNotes notes={patchNotesData.iOS} />
-          </div>
-        )}
-        {activeTab === "android" && (
-          <div>
-            <SDKCard
-              platform="Android"
-              version="1.0.1"
-              sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMIE_SDK_ANDROID.pdf"
-              sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
-            />
-            <PatchNotes notes={patchNotesData.android} />
-          </div>
-        )}
-        <ContactInformation /> {/* 연락처 정보 추가 */}
+        <TabNavigation />
+        <ContactInformation />
       </main>
     </div>
   );
