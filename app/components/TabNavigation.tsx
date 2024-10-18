@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import SDKCard from "../components/SDKCard";
-import APIDocumentCard from "../components/ApiDocumentCard";
 import PatchNotes from "../components/PatchNotes";
 import patchNotesData from "../../data/patchNotes.json";
 
