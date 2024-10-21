@@ -15,6 +15,32 @@
   ],
   "android": [
     {
+      "version": "1.0.3",
+      "date": "2024-10-21",
+      "changes": [
+        {
+          "title": "권한 및 난독화 설정 변경",
+          "description": [
+            "Manifest 설정이 변경되었습니다.",
+            "onPermissionsResult 함수에 대한 설명이 추가되었습니다.",
+            "proguard-rules.pro 세팅이 추가되었습니다."
+          ]
+        }
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "date": "2024-10-2",
+      "changes": [
+        {
+          "title": "측위 반환 정보 기입",
+          "description": [
+            "측위 관련 변수의 반환값 예시가 문서에 기입되었습니다."
+          ]
+        }
+      ]
+    },
+    {
       "version": "1.0.1",
       "date": "2024-09-30",
       "changes": [
