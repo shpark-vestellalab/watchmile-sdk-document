@@ -49,7 +49,7 @@ export default function TabNavigation() {
         <div>
           <SDKCard
             platform="Android"
-            version="1.0.1"
+            version="1.0.3"
             sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_ANDROID.pdf"
             sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_ANDROID.zip"
           />
