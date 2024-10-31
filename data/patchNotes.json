@@ -15,6 +15,19 @@
   ],
   "android": [
     {
+      "version": "1.0.4",
+      "date": "2024-10-31",
+      "changes": [
+        {
+          "title": "측위 반환 변수 타입 변경",
+          "description": [
+            "속력, 방향 변수의 타입이 다음과 같이 패치되었습니다.",
+            "String -> Int"
+          ]
+        }
+      ]
+    },
+    {
       "version": "1.0.3",
       "date": "2024-10-21",
       "changes": [
