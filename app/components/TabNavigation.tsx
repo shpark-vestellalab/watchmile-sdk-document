@@ -37,7 +37,7 @@ export default function TabNavigation() {
         <div>
           <SDKCard
             platform="iOS"
-            version="1.0.1"
+            version="1.0.2"
             sdkDocLink="https://api.watchmile.net/cdn/kakao/WATCHMILE_SDK_iOS.pdf"
             sdkLink="https://api.watchmile.net/cdn/kakao/WatchmileSDK_iOS.zip"
           />
